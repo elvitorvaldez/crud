@@ -10,9 +10,7 @@ class AutosController extends Controller
     public function index()
     {
      $autos = Auto::all();
-     var_dump($autos);
-     return;
-     return view('autos.index')->with('autos', $autos);  
+      return view('autos.index')->with('autos', $autos);  
     }
     
     public function create()
