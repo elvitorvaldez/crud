@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Auto;
+use Illuminate\Support\Facades\DB;
 
 class AutosController extends Controller
 {
     public function index()
     {
-     $autos = Auto::all();
-      return view('autos.index')->with('autos', $autos);  
+    // $autos = Auto::all();
+     // return view('autos.index')->with('autos', $autos);  
+
+ $results = DB::select('select * from autos');
+       print_r($results);
+    return view('autos.index')->with('autos', $results);   
     }
     
     public function create()

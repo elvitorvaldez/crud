@@ -1,11 +1,3 @@
-<?php
-if (isset($autos))
-{print_r($autos);}
-else
-{echo "Vacio";}
-die();
-?>
-
 <h1 class="text-primary">CRUD de Autos</h1>
 
 <table class="table table-bordered" id="MyTable">
