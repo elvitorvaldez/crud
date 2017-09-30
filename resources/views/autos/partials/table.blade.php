@@ -10,28 +10,26 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($autos as $auto)
-        <tr>
-            <td class="text-center">{{ $auto->id }}</td>
-            <td class="text-center">{{ $auto->marca }}</td>
-            <td class="text-center">{{ $auto->modelo }}</td>
-        <td class="text-center">{{ $auto->created_at }}</td>
 
-        {!! Form::open(['route' => ['autos.destroy', $autos->id], 'method' => 'DELETE']) !!}
+        @foreach($autos as $auto)
+            <tr>
+                <td class="text-center">{{ $auto->id }}</td>
+                <td class="text-center">{{ $auto->marca }}</td>
+                <td class="text-center">{{ $auto->modelo }}</td>
+            
+                
+                <td class="text-center">
+                    <button type="submit" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                    <a href="{{ url('/autos/'.$auto->id.'/edit') }}" class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </a>
+                </td>
 
-            <td class="text-center">
-                <button type="submit" class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-                <a href="{{ url('/pasteles/'.$pastel->id.'/edit') }}" class="btn btn-info btn-xs">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                </a>
-            </td>
-
-        {!! Form::close() !!}
-
-        </tr>
-    @endforeach
+           
+            </tr>
+        @endforeach
   </tbody>
   <tfoot>
     <tr>

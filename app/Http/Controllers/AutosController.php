@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Auto;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+
 
 class AutosController extends Controller
 {
     public function index()
     {
-    // $autos = Auto::all();
-     // return view('autos.index')->with('autos', $autos);  
-
- $results = DB::select('select * from autos');
-       print_r($results);
-    return view('autos.index')->with('autos', $results);   
+    $results = DB::select('select * from autos');
+    return View::make('autos.index')->with('autos', $results);  
+  
     }
     
     public function create()
