@@ -11,10 +11,8 @@
 |
 */
 
- Route::get('/', function () {
-     return view('autos/index');
- });
 
 
 Route::resource('create', 'AutosController@create');
 Route::resource('autos', 'AutosController');
+

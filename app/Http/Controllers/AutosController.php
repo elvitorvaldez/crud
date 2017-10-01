@@ -15,7 +15,7 @@ class AutosController extends Controller
 {
     public function index()
     {
-    $results = DB::select('select * from autos');
+    $results = Auto::all();
     return View::make('autos.index')->with('autos', $results);  
   
     }
@@ -43,15 +43,25 @@ class AutosController extends Controller
     
    public function edit($id)
     {
-        $autos = Auto::find($id);
-        return view('autos.edit')->with('autos',$autos);
+        $result = Auto::find($id);
+        return View::make('autos.edit')->with('auto', $result); 
     }
     
-   public function update(Request $request, $id)
+  /* public function update(Request $request, $id)
     {
         $autos = Auto::find($id);
-        $autos->nombre = $request->input('marca');
-        $autos->sabor  = $request->input('modelo');
+        $autos->marca = $request->input('marca');
+        $autos->modelo  = $request->input('modelo');
+        $autos->save();
+        return redirect()->route('autos.index');
+    }*/
+
+
+       public function update(Request $request)
+    {
+        $autos = Auto::find($request->input('id'));
+        $autos->marca = $request->input('marca');
+        $autos->modelo  = $request->input('modelo');
         $autos->save();
         return redirect()->route('autos.index');
     }
