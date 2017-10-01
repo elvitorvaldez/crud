@@ -25,12 +25,11 @@ class AutosController extends Controller
         return view('autos.create'); 
     }
     
-    public function store()
+    public function store(Request $request)
     {
         $autos = new Auto;
         $autos->marca = $request->input('marca');
         $autos->modelo  = $request->input('modelo');
-
         $autos->save();
 
         return redirect()->route('autos.index');
@@ -47,15 +46,6 @@ class AutosController extends Controller
         return View::make('autos.edit')->with('auto', $result); 
     }
     
-  /* public function update(Request $request, $id)
-    {
-        $autos = Auto::find($id);
-        $autos->marca = $request->input('marca');
-        $autos->modelo  = $request->input('modelo');
-        $autos->save();
-        return redirect()->route('autos.index');
-    }*/
-
 
        public function update(Request $request)
     {

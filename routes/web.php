@@ -13,6 +13,8 @@
 
 
 
-Route::resource('create', 'AutosController@create');
+
 Route::resource('autos', 'AutosController');
+Route::get('autos/destroy/{id}', 'AutosController@destroy');
+Route::post('autos/store', 'AutosController@store');
 

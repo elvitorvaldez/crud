@@ -1,4 +1,3 @@
-<h1 class="text-primary">Control de Autos</h1>
 
 <table class="table table-bordered" id="MyTable">
   <thead>
@@ -20,9 +19,9 @@
       
 
             <td class="text-center">
-                <button type="submit" class="btn btn-danger btn-xs">
+                <a href="{{ action('AutosController@destroy', $auto->id) }}" class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true">Borrar</span>
-                </button>
+                </a>
                 <a href="{{ url('/autos/'.$auto->id.'/edit') }}" class="btn btn-info btn-xs">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true">Editar</span>
                 </a>
