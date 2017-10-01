@@ -21,11 +21,9 @@
 <body>
     
     <div class="container" style="max-width: 800px">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+        
                 @yield('content')
-            </div>
-        </div>
+  
     </div>
     <!-- Scripts -->   
     <script src="<?php echo $url;?>js/jquery.js"></script>
@@ -35,6 +33,7 @@
     <script>
         $(document).ready(function(){
             $('#MyTable').dataTable();
+            $( "#MyTable_wrapper" ).removeClass( "form-inline" );
         });
     </script>
 
